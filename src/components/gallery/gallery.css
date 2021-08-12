@@ -23,7 +23,8 @@
 }
 
 .gallery-item {
-  background-color: red;
+  overflow: hidden;
+  background-color: grey;
   border-radius: 10px;
   width: calc(20% - 16px);
   -webkit-box-sizing: border-box;
@@ -72,5 +73,12 @@ div .row:nth-child(even) {
 
 .gallery-item:hover {
   background-color: blue;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 /*# sourceMappingURL=gallery.css.map */

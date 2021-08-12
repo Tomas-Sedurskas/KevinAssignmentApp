@@ -2,6 +2,7 @@ body {
   font-family: 'Roboto', sans-serif;
   margin: 0;
   padding: 0;
+  background-color: #2B2B2B;
 }
 
 .container-desktop {
@@ -19,5 +20,9 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-flow: row nowrap;
           flex-flow: row nowrap;
+}
+
+::-webkit-scrollbar {
+  display: none;
 }
 /*# sourceMappingURL=baseStyles.css.map */

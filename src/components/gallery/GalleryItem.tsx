@@ -1,9 +1,9 @@
 import React from 'react'
 
-export const GalleryItem: React.FC = () => {
+export const GalleryItem = (props: any) => {
     return (
-        <div className="gallery-item">
-            Item
-        </div>
+        <>
+            
+        </>
     )
 }
