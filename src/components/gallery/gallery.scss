@@ -1,0 +1,59 @@
+.gallery {
+    display: flex;
+    flex-flow: column wrap;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 48px;
+}
+
+.row{
+   display: flex;
+   flex-flow: row wrap;
+}
+
+.gallery-item {
+    background-color: red;
+    border-radius: 10px;
+    width: calc(20% - 16px);
+    box-sizing: border-box;
+    margin-bottom: 16px;
+    margin-right: 16px;
+}
+
+div .row:nth-child(odd) .gallery-item:nth-child(odd) {
+    height: 277px;
+    z-index: 1;
+}
+
+div .row:nth-child(odd) .gallery-item:nth-child(even) {
+    height: 138px;
+}
+
+div .row:nth-child(even) .gallery-item:nth-child(odd) {
+    height: 138px;
+}
+
+div .row:nth-child(even) .gallery-item:nth-child(even) {
+    height: 277px;
+}
+
+div .row:nth-child(even){
+    height: 277px;
+    margin-top: -138px;
+    align-items: flex-end;
+}
+
+
+div .row:nth-child(odd){
+    align-items: flex-start;
+}
+
+div .row:nth-child(even) {
+    align-items: flex-end;
+    margin-bottom: 16px;
+}
+
+.gallery-item:hover{
+    background-color: blue;
+}
+

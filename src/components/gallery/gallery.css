@@ -1,0 +1,76 @@
+.gallery {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column wrap;
+          flex-flow: column wrap;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 48px;
+}
+
+.row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+}
+
+.gallery-item {
+  background-color: red;
+  border-radius: 10px;
+  width: calc(20% - 16px);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin-bottom: 16px;
+  margin-right: 16px;
+}
+
+div .row:nth-child(odd) .gallery-item:nth-child(odd) {
+  height: 277px;
+  z-index: 1;
+}
+
+div .row:nth-child(odd) .gallery-item:nth-child(even) {
+  height: 138px;
+}
+
+div .row:nth-child(even) .gallery-item:nth-child(odd) {
+  height: 138px;
+}
+
+div .row:nth-child(even) .gallery-item:nth-child(even) {
+  height: 277px;
+}
+
+div .row:nth-child(even) {
+  height: 277px;
+  margin-top: -138px;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+div .row:nth-child(odd) {
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+div .row:nth-child(even) {
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  margin-bottom: 16px;
+}
+
+.gallery-item:hover {
+  background-color: blue;
+}
+/*# sourceMappingURL=gallery.css.map */

@@ -1,0 +1,16 @@
+body{
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container-desktop{
+    width: calc(100% - 90px);
+    margin-left: 90px;
+    box-sizing: border-box;
+}
+
+.app-container{
+    display: flex;
+    flex-flow: row nowrap;
+}
