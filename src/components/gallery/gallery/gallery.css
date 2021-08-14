@@ -1,0 +1,90 @@
+.gallery {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 48px;
+  max-width: 1920px;
+}
+
+.gallery-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+}
+
+.gallery-column {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column wrap;
+          flex-flow: column wrap;
+}
+
+.gallery-item {
+  overflow: hidden;
+  background-color: grey;
+  border-radius: 10px;
+  width: calc(20% - 24px);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin-bottom: 24px;
+  margin-right: 24px;
+}
+
+div .gallery-row:nth-child(odd) .gallery-item:nth-child(odd) {
+  height: 277px;
+  z-index: 1;
+}
+
+div .gallery-row:nth-child(odd) .gallery-item:nth-child(even) {
+  height: 138px;
+}
+
+div .gallery-row:nth-child(even) .gallery-item:nth-child(odd) {
+  height: 138px;
+}
+
+div .gallery-row:nth-child(even) .gallery-item:nth-child(even) {
+  height: 277px;
+}
+
+div .gallery-row:nth-child(even) {
+  height: 277px;
+  margin-top: -138px;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+div .gallery-row:nth-child(odd) {
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+div .gallery-row:nth-child(even) {
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  margin-bottom: 24px;
+}
+
+.gallery-item:hover {
+  background-color: blue;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+/*# sourceMappingURL=gallery.css.map */

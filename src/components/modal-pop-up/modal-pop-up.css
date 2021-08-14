@@ -1,0 +1,204 @@
+.modal {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  background-color: rgba(43, 43, 43, 0.7);
+}
+
+.pop-up {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 10;
+  background-color: transparent;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  max-width: 996px;
+  width: 100%;
+  height: 600px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.pop-up-image-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: rgba(43, 43, 43, 0.8);
+  width: 50%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.pop-up-text-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  background-color: #2B2B2B;
+  width: 50%;
+  padding: 24px 24px 0 24px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  color: white;
+}
+
+.pop-up-text-header {
+  margin-bottom: 24px;
+}
+
+.row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+}
+
+.column {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  width: 100%;
+}
+
+.camera-details-row span {
+  color: #828282;
+  font-size: 12px;
+}
+
+.camera-details-row p {
+  color: #E0E0E0;
+  margin: 6px 0;
+}
+
+.like-button {
+  background-color: #3C3C3C;
+  border-radius: 10px;
+  border: none;
+  font-size: 14px;
+  padding: 8px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 32px;
+  color: #F2F2F2;
+}
+
+.like-button-icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+}
+
+.close-button {
+  background-color: #3C3C3C;
+  padding: 8px;
+  border-radius: 10px;
+  border: none;
+  height: 32px;
+}
+
+.close-button-icon {
+  height: 16px;
+  width: 16px;
+}
+
+.pop-up-text-wrapper h2 {
+  font-size: 32px;
+  margin: 0;
+}
+
+.author-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 8px;
+}
+
+.author-image {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin-right: 8px;
+  background-color: #828282;
+}
+
+.author-image img {
+  width: 14px;
+  height: 14px;
+}
+
+.author-name {
+  font-weight: 500;
+  color: #BDBDBD;
+  font-size: 18px;
+}
+
+.camera-details-table {
+  padding-top: 24px;
+  border-top: 1px solid #3C3C3C;
+}
+
+.camera-details-row {
+  margin-bottom: 24px;
+}
+/*# sourceMappingURL=modal-pop-up.css.map */
