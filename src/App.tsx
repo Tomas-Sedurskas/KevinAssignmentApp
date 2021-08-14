@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -11,10 +11,15 @@ import { Error404 } from './components/pages/Error404';
 import { Navbar } from './components/common/navbar/Navbar';
 import './styles/baseStyles.css';
 import { useAppSelector } from './redux/hooks/hooks';
+import { RouteProps } from "react-router-dom";
 
-function App() {
- 
-  const renderModal = useAppSelector((state) => state.photosSlice.renderModal);
+const App: React.FC = () => {
+
+  const renderModal = useAppSelector((state) => state.navigationSlice.renderModal);
+  const previousLocation = useAppSelector((state) => state.navigationSlice.previousLocation);
+
+  //const currentLocation: string = useParams();
+  
 
   return (
     <div className="app-container">
@@ -22,7 +27,7 @@ function App() {
         <Navbar />
         <div className="container-desktop">
             
-            <Switch>
+            <Switch location={previousLocation}>
               <Route exact path="/" component={Main} />
               <Route exact path="/liked" component={Liked} /> 
               <Route exact path="/photo/:id" component={ModalPopUp} />

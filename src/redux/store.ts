@@ -1,10 +1,11 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
 import photosSlice from './slices/photosSlice';
-
+import navigationSlice from './slices/navigationSlice';
 
 export const store = configureStore({
   reducer: {
-    photosSlice
+    photosSlice,
+    navigationSlice
   },
 });
 

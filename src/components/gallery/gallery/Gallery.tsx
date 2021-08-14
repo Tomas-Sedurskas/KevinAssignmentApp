@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import { GalleryItem } from '../gallery-item/GalleryItem';
 import './gallery.css';
 import data from '../../../utils/apiResponseDummy.json';
 import { GalleryItemRow } from '../gallery-row/GalleryItemRow';
-
 
 
 interface Props {
@@ -47,6 +45,10 @@ export const Gallery: React.FC<Props> = ({photos}) => {
         //dispatch(getPagePhotosAsync(1))
         FilterLikedImages(data)
     }, [])
+
+   
+
+   
 
     return (
         <div className="gallery">
