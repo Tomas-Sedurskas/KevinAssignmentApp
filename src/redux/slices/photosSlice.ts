@@ -2,6 +2,7 @@ import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import { axios } from '../../utils/axios';
 import data from '../../utils/apiResponseDummy.json';
 import likedData from '../../utils/dummyLiked.json';
+import { fileURLToPath } from "url";
 
 export const getPagePhotosAsync = createAsyncThunk('photos/get-page',
     async (page: number) => {
@@ -35,16 +36,34 @@ const photosSlice = createSlice({
     name: 'photos',
     initialState: {
         photos: data  as  any,
-        likedPhotos: likedData  as  any,
+        likedPhotos: [] as  any,
         loading: false,
         updatePhotos: true,
         updateLikedPhotos: true,
         renderModal: false
     },
     reducers: {
-        likePhoto: (state) => {
+        likePhoto: (state, action: PayloadAction<any>) => {
+            let likedLocalStorage: string = localStorage.getItem('kevin-unsplash-liked-images') || '[]';
+            let parsedStorage: Array<string> = JSON.parse(likedLocalStorage);
+
+            parsedStorage.push(action.payload);
+            state.likedPhotos = parsedStorage;
+            localStorage.setItem('kevin-unsplash-liked-images', JSON.stringify(parsedStorage));
+            
             state.updatePhotos = true;
         },
+        dislikePhoto: (state, action: PayloadAction<any>) => {
+            
+            let likedLocalStorage: string = localStorage.getItem('kevin-unsplash-liked-images') || '[]';
+            let parsedStorage: Array<string> = JSON.parse(likedLocalStorage);
+            console.log(parsedStorage)
+            var filteredStorage = parsedStorage.filter(id => id !== action.payload);
+            console.log(filteredStorage)
+            state.likedPhotos = filteredStorage;
+            localStorage.setItem('kevin-unsplash-liked-images', JSON.stringify(filteredStorage));
+            state.updatePhotos = true;
+        }
     },
     extraReducers: (builder) => {
         builder.addCase(getPagePhotosAsync.pending, (state) => {
@@ -72,5 +91,7 @@ const photosSlice = createSlice({
         })
     }
 });
+
+export const { likePhoto, dislikePhoto } = photosSlice.actions;
 
 export default photosSlice.reducer;

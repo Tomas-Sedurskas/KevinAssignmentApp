@@ -4,13 +4,23 @@ import { useParams, Link } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks/hooks';
 import { useLocation, useHistory } from 'react-router-dom';
 import { hideModal } from '../../redux/slices/navigationSlice';
+import { LikeButton } from '../common/like-button/LikeButton';
+
 
 interface Params {
     id: string
 }
+
 interface Location {
     state: {
         pathname: string
+    }
+}
+
+ interface Photo {
+    id: string,
+    urls: {
+        regular: string
     }
 }
 
@@ -22,33 +32,31 @@ export const ModalPopUp: React.FC = (props) => {
     const renderModal = useAppSelector((state) => state.navigationSlice.renderModal);
 
     const dispatch = useAppDispatch();
-    const photos = useAppSelector((state) => state.photosSlice.likedPhotos);
+    const photos = useAppSelector((state) => state.photosSlice.photos);
 
-    const [photo, setPhoto] = useState<any>(undefined)
+    let photoState = { 
+        id: '', 
+        urls: { 
+            regular: ''
+        }
+    }
+    const [photo, setPhoto] = useState<Photo>(photoState);
     
     var {id}: Params = useParams()
     
+   
+
     useEffect(() => {
         if(!renderModal){
             history.goBack()
         }
         //if no photos loaded in liked
         //dispatch(getLikedPhotoAsync(id))
-        let filteredPhoto = photos.find((photo: any) => photo.id === id)
+        let filteredPhoto = photos.find((photo: Photo) => photo.id === id)
         console.log(filteredPhoto)
         setPhoto(filteredPhoto)
     }, [])
-    /*
-     useEffect(() => {
-        console.log( previousLocation )
-        console.log(history)
-        if(renderModal){
-        console.log('PUSHING HISTORY')
-        history.push(previousLocation)
-        }
-    }, [renderModal])
-    */
-    if(photo !== undefined){
+    if(photo.id !== ''){
         return (
             <div className="modal">
                 <div className="pop-up">
@@ -60,9 +68,7 @@ export const ModalPopUp: React.FC = (props) => {
                         <div className="row">
                             <div className="column">
                                 <div className="row pop-up-text-header">
-                                    <button className="like-button">
-                                        <img className="like-button-icon" src="/assets/like-icon.svg" alt="Like icon" /><span>Like</span>
-                                    </button>
+                                    <LikeButton id={photo.id} />
                                     <button className="close-button">
                                         <Link to={{ pathname: `${location.state.pathname}` , state: { pathname: '/' }}} onClick={() => {dispatch(hideModal())}}>
                                          <img className="close-button-icon" src="/assets/close-icon.svg" alt="Close icon" />

@@ -125,6 +125,26 @@
   color: #F2F2F2;
 }
 
+.like-button-active {
+  background-color: #2D9CDB;
+  border-radius: 10px;
+  border: none;
+  font-size: 14px;
+  padding: 8px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 32px;
+  color: #F2F2F2;
+}
+
 .like-button-icon {
   width: 16px;
   height: 16px;
