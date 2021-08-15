@@ -1,20 +1,25 @@
 import React, { useEffect, useState } from 'react'
 import './modal-pop-up.css';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks/hooks';
-import { useHistory } from 'react-router-dom';
+import { useLocation, useHistory } from 'react-router-dom';
+import { hideModal } from '../../redux/slices/navigationSlice';
 
 interface Params {
     id: string
 }
+interface Location {
+    state: {
+        pathname: string
+    }
+}
 
 export const ModalPopUp: React.FC = (props) => {
+    const location: Location = useLocation();
     const history = useHistory();
-    
+    console.log(location.state.pathname)
     const previousLocation = useAppSelector((state) => state.navigationSlice.previousLocation);
     const renderModal = useAppSelector((state) => state.navigationSlice.renderModal);
-
-
 
     const dispatch = useAppDispatch();
     const photos = useAppSelector((state) => state.photosSlice.likedPhotos);
@@ -24,7 +29,9 @@ export const ModalPopUp: React.FC = (props) => {
     var {id}: Params = useParams()
     
     useEffect(() => {
-   
+        if(!renderModal){
+            history.goBack()
+        }
         //if no photos loaded in liked
         //dispatch(getLikedPhotoAsync(id))
         let filteredPhoto = photos.find((photo: any) => photo.id === id)
@@ -57,7 +64,10 @@ export const ModalPopUp: React.FC = (props) => {
                                         <img className="like-button-icon" src="/assets/like-icon.svg" alt="Like icon" /><span>Like</span>
                                     </button>
                                     <button className="close-button">
-                                        <img className="close-button-icon" src="/assets/close-icon.svg" alt="Close icon" />
+                                        <Link to={{ pathname: `${location.state.pathname}` , state: { pathname: '/' }}} onClick={() => {dispatch(hideModal())}}>
+                                         <img className="close-button-icon" src="/assets/close-icon.svg" alt="Close icon" />
+                                        </Link>
+                                        
                                     </button>
                                 </div>
                                 <h2>Title of photo</h2>

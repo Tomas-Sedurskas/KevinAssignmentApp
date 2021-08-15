@@ -34,7 +34,7 @@ export const Gallery: React.FC<Props> = ({photos}) => {
         //var likedImgIds = localStorage.getItem('kevin-unsplash-liked-images')
         
         for(let i = 0; i <= photos.length/responsiveCardsPerRow; i++){
-            galleryStructure.push(<GalleryItemRow data={photos.slice(packetStart, packetEnd)} />) 
+            galleryStructure.push(<GalleryItemRow data={photos.slice(packetStart, packetEnd)}  />) 
             packetStart = packetStart + responsiveCardsPerRow
             packetEnd = packetEnd + responsiveCardsPerRow
         }

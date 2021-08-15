@@ -12,20 +12,29 @@ const navigationSlice = createSlice({
             search: "",
             state: undefined
         },
-        renderModal: true
+        currentLocation: {
+            hash: "",
+            pathname: "/",
+            search: "",
+            state: undefined
+        },
+        renderModal: false
     },
     reducers: {
-        renderModal: (state, action) => {
-            console.log(action.payload)
+        renderModal: (state) => {
             state.renderModal = true
-            state.previousLocation = action.payload
         },
         hideModal: (state) => {
             state.renderModal = false
         },
+        setLocation: (state, action) => {
+            console.log(action.payload)
+            state.previousLocation.pathname = action.payload.previousLocation
+            state.currentLocation.pathname = action.payload.currentLocation
+        }
     }
 });
 
-export const { renderModal } = navigationSlice.actions;
+export const { renderModal, hideModal, setLocation } = navigationSlice.actions;
 
 export default navigationSlice.reducer;
