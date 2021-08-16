@@ -1,28 +1,35 @@
 import React from 'react'
 import { likePhoto, dislikePhoto } from '../../../redux/slices/photosSlice';
 import { useAppDispatch, useAppSelector } from '../../../redux/hooks/hooks';
+import './like-button.css';
 
 interface Props {
-    id: string
+    id: string,
+    small: boolean
 }
 
-export const LikeButton = (props: Props) => {
+export const LikeButton: React.FC<Props> = (props) => {
     const dispatch = useAppDispatch();
-    const likedPhotos = useAppSelector((state) => state.photosSlice.likedPhotos);
-    
+    const likedIdArray = useAppSelector((state) => state.photosSlice.likedIdArray);
 
-
-
-    if(likedPhotos.includes(props.id)){
+    if(likedIdArray.includes(props.id)){
         return(
             <button onClick={() => {dispatch(dislikePhoto(props.id))}} className="like-button-active">
-                <img className="like-button-icon" src="/assets/like-icon.svg" alt="Like icon" /><span>Unlike</span>
+                <img className="like-button-icon" src="/assets/like-icon.svg" alt="Like icon" />
+                { props.small
+                ? null
+                : <span>Unlike</span>
+                }
             </button>
         )        
     } else {
         return(
             <button onClick={() => {dispatch(likePhoto(props.id))}} className="like-button">
-                <img className="like-button-icon" src="/assets/like-icon.svg" alt="Like icon" /><span>Like</span>
+                <img className="like-button-icon" src="/assets/like-icon.svg" alt="Like icon" />
+                { props.small
+                ? null
+                : <span>Like</span>
+                }
             </button>
         )
 }

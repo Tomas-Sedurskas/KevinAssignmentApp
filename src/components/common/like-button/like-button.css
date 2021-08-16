@@ -1,0 +1,73 @@
+.like-button {
+  background-color: #3C3C3C;
+  border-radius: 10px;
+  border: none;
+  font-size: 14px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 32px;
+  color: #F2F2F2;
+  cursor: pointer;
+}
+
+.like-button img {
+  height: 16px;
+  width: 16px;
+  margin: 0 2px;
+}
+
+.like-button span {
+  margin-left: 8px;
+  margin-right: 4px;
+}
+
+.like-button-active {
+  background-color: #2D9CDB;
+  border-radius: 10px;
+  border: none;
+  font-size: 14px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 32px;
+  color: #F2F2F2;
+  cursor: pointer;
+}
+
+.like-button-active img {
+  height: 16px;
+  width: 16px;
+  margin: 0 2px;
+}
+
+.like-button-active span {
+  margin-left: 8px;
+  margin-right: 4px;
+}
+
+.like-button-icon {
+  width: 16px;
+  height: 16px;
+}
+/*# sourceMappingURL=like-button.css.map */

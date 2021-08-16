@@ -1,7 +1,4 @@
-import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
-import { axios } from '../../utils/axios';
-import data from '../../utils/apiResponseDummy.json';
-import likedData from '../../utils/dummyLiked.json';
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 const navigationSlice = createSlice({
     name: 'navigation',
@@ -18,7 +15,7 @@ const navigationSlice = createSlice({
             search: "",
             state: undefined
         },
-        renderModal: false
+        renderModal: true
     },
     reducers: {
         renderModal: (state) => {
@@ -27,8 +24,7 @@ const navigationSlice = createSlice({
         hideModal: (state) => {
             state.renderModal = false
         },
-        setLocation: (state, action) => {
-            console.log(action.payload)
+        setLocation: (state, action: PayloadAction<{previousLocation: string, currentLocation: string}>) => {
             state.previousLocation.pathname = action.payload.previousLocation
             state.currentLocation.pathname = action.payload.currentLocation
         }

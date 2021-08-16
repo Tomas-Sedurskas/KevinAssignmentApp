@@ -1,3 +1,20 @@
+@import '../../styles/variables.scss';
+
+@mixin flexColumn {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+@mixin flexRow {
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+@mixin fullFlexCenter {
+    justify-content: center;
+    align-items: center;
+}
+
 .modal {
     width: 100vw;
     height: 100vh;
@@ -6,159 +23,160 @@
     left: 0;
     z-index: 5;
     background-color: rgba(43, 43, 43, 0.7);
-}
 
-.pop-up {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    z-index: 10;
-    background-color: transparent;
-    transform: translate(-50%, -50%);
-    max-width: 996px;
-    width: 100%;
-    height: 600px;
-    display: flex;
-    flex-flow: row nowrap;
-    border-radius: 10px;
-    overflow: hidden;
-}
+    .pop-up {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: 10;
+        background-color: transparent;
+        transform: translate(-50%, -50%);
+        max-width: 996px;
+        width: calc(100% - 96px);
+        height: 600px;
+        display: flex;
+        flex-flow: row nowrap;
+        border-radius: 10px;
+        overflow: hidden;
 
-.pop-up-image-wrapper {
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
-    background-color: rgba(43, 43, 43, 0.8);
-    width: 50%;
-    box-sizing: border-box;
-}
+        .pop-up-image-wrapper {
+            @include flexColumn();
+            justify-content: center;
+            background-color: rgba(43, 43, 43, 0.8);
+            width: 50%;
+            box-sizing: border-box;
+        }
 
-.pop-up-text-wrapper {
-    display: flex;
-    flex-flow: column nowrap;
-    background-color: #2B2B2B;
-    width: 50%;
-    padding: 24px 24px 0 24px;
-    box-sizing: border-box;
-    justify-content: space-between;
-    color: white;
-}
+        .pop-up-text-wrapper {
+            @include flexColumn();
+            background-color: $gray-1;
+            width: 50%;
+            padding: 24px 24px 0 24px;
+            box-sizing: border-box;
+            justify-content: space-between;
+            color: $white;
+            word-wrap: break-word;
 
-.pop-up-text-header {
-    margin-bottom: 24px;
-}
+            h2 {
+                font-size: 32px;
+                margin: 0;
+            }
 
-.row {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-between;
-    width: 100%;
-}
+            .author-wrapper {
+                @include flexRow();
+                align-items: center;
+                margin-top: 8px;
 
-.column {
-    display: flex;
-    flex-flow: column nowrap;
-    width: 100%;
-}
+                .author-image {
+                    width: 30px;
+                    height: 30px;
+                    border-radius: 50%;
+                    display: flex;
+                    @include fullFlexCenter();
+                    box-sizing: border-box;
+                    margin-right: 8px;
+                    background-color: $gray-3;
+                    overflow: hidden;
+                }
 
-.camera-details-row span {
-    color: #828282;
-    font-size: 12px;
-    
-}
+                .author-name {
+                    font-weight: 500;
+                    color: $gray-4;
+                    font-size: 18px;
+                }
+            }
 
-.camera-details-row p {
-    color: #E0E0E0;
-    margin: 6px 0;
-}
+            .pop-up-text-header {
+                margin-bottom: 24px;
 
-.like-button {
-    background-color: #3C3C3C;
-    border-radius: 10px;
-    border: none;
-    font-size: 14px;
-    padding: 8px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    height: 32px;
-    color: #F2F2F2;
-}
+                .close-button {
+                    background-color: $gray-2;
+                    padding: 0px;
+                    border-radius: 10px;
+                    border: none;
+                    height: 32px;
 
-.like-button-active{
-    background-color: #2D9CDB;
-    border-radius: 10px;
-    border: none;
-    font-size: 14px;
-    padding: 8px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    height: 32px;
-    color: #F2F2F2;
-   
-}
+                    .close-button-icon {
+                        padding: 8px;
+                        height: 16px;
+                        width: 16px;
+                    }
+                }
+            }            
+        }
 
-.like-button-icon {
-    width: 16px;
-    height: 16px;
-    margin-right: 8px;
-}
+        .camera-details-table {
+            padding-top: 24px;
+            border-top: 1px solid $gray-2;
 
-.close-button {
-    background-color: #3C3C3C;
-    padding: 8px;
-    border-radius: 10px;
-    border: none;
-    height: 32px;
-}
+            .camera-details-row {
+                margin-bottom: 24px;
 
-.close-button-icon {
-    height: 16px;
-    width: 16px;
-}
+                span {
+                    color: $gray-3;
+                    font-size: 12px;
+                }
 
-.pop-up-text-wrapper h2 {
-    font-size: 32px;
-    margin: 0
-}
+                p {
+                    color: $gray-5;
+                    font-size: 14px;
+                    margin: 6px 0;
+                }
+            }
+        }
+    }
+    .row {
+        @include flexRow();
+        justify-content: space-between;
+        width: 100%;
+    }
 
-.author-wrapper {
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-    margin-top: 8px;
-}
+    .column {
+        @include flexColumn();
+        width: 100%;
+    }
 
-.author-image {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-sizing: border-box;
-    margin-right: 8px;
-    background-color: #828282;
-}
+    @media (max-width: 857px) {
+        .pop-up {
+            @include flexColumn();
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            z-index: 10;
+            background-color: transparent;
+            transform: translate(-50%, -50%);
+            max-width: 800px;
+            width: calc(100% - 72px);
+            height: auto;
+            border-radius: 10px;
+            overflow: hidden;
 
-.author-image img{
-    width: 14px;
-    height: 14px;
-}
+            .pop-up-image-wrapper {
+                width: 100%;
+                max-height: 50vh;
+                overflow: hidden;
+               
+            }
 
-.author-name {
-    font-weight: 500;
-    color: #BDBDBD;
-    font-size: 18px;
-}
+            .pop-up-text-wrapper {
+                @include flexColumn();
+                max-height: 50vh;
+                background-color: #2B2B2B;
+                width: 100%;
+                padding: 24px 24px 0 24px;
+                box-sizing: border-box;
+                justify-content: space-between;
+                color: white;
 
-.camera-details-table {
-    padding-top: 24px;
-    border-top: 1px solid #3C3C3C;
-}
+                h2 {
+                    font-size: 18px;
+                }
 
-.camera-details-row {
-    margin-bottom: 24px;
+                .pop-up-text-header {
+                    margin-bottom: 24px;
+                }
+            }
+        }
+    }
 }
 

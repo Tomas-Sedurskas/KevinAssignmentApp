@@ -8,7 +8,7 @@
   position: fixed;
 }
 
-.navbar-logo-wrapper {
+.navbar .navbar-logo-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -22,7 +22,13 @@
           justify-content: center;
 }
 
-.navbar-button-wrapper {
+.navbar .navbar-logo-wrapper .navbar-logo {
+  margin-top: 48px;
+  width: 24px;
+  height: 24px;
+}
+
+.navbar .navbar-button-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -39,20 +45,92 @@
           align-items: center;
 }
 
-.navbar-button-wrapper button {
+.navbar .navbar-button-wrapper button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   border: none;
-  padding: 24px;
+  max-height: 66px;
+  max-width: 66px;
   border-radius: 10px;
   background-color: #3C3C3C;
+  -webkit-transition: all 0.13s ease-out;
+  transition: all 0.13s ease-out;
 }
 
-.navbar-button-wrapper button:hover {
+.navbar .navbar-button-wrapper button:hover {
   background-color: #828282;
 }
 
-.navbar-logo {
-  margin-top: 48px;
-  width: 24px;
-  height: 24px;
+.navbar .navbar-button-wrapper img {
+  padding: 24px;
+}
+
+.navbar .navbar-button-wrapper .navbar-button-active {
+  background-color: #828282 !important;
+}
+
+@media (max-width: 857px) {
+  .navbar {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row nowrap;
+            flex-flow: row nowrap;
+    background-color: #3C3C3C;
+    width: 100vw;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    padding: 12px;
+    height: 90px;
+    position: fixed;
+    bottom: 0;
+    z-index: 3;
+  }
+  .navbar .navbar-logo-wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column nowrap;
+            flex-flow: column nowrap;
+    width: auto;
+    height: 100%;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .navbar .navbar-logo-wrapper .navbar-logo {
+    margin-top: 0;
+    width: 24px;
+    height: 24px;
+    margin-left: 24px;
+  }
+  .navbar .navbar-button-wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    height: auto;
+    width: 100%;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
 }
 /*# sourceMappingURL=navbar.css.map */

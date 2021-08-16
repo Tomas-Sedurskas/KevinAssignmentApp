@@ -1,55 +1,32 @@
 import React from 'react'
 import './navbar.css';
-import { Link, useHistory, withRouter } from 'react-router-dom';
-import { setLocation } from '../../../redux/slices/navigationSlice';
-import { useAppDispatch, useAppSelector } from '../../../redux/hooks/hooks';
+import { Link, withRouter, useLocation } from 'react-router-dom';
 
-
-interface Props {
-    location: {
-        pathname: string
-    }
-}
-
-
-const Navbar: React.FC = ({location}: any) => {
-    const dispatch = useAppDispatch();
-    const currentLocation = useAppSelector((state) => state.navigationSlice.currentLocation)
-    const history = useHistory();
+const Navbar: React.FC = () => {
+    let local = useLocation().pathname
     
- 
-    /*
-    const handleRouting = (pathname: string) => {
-        console.log('Handling routes')
-        let payload = {
-            currentLocation: pathname,
-            previousLocation: currentLocation.pathname
-        }
-        dispatch(setLocation(payload))
-        history.push(pathname);
+    const checkLocation = (path: string) => {
+        if(path === local){
+            return "navbar-button-active"
+        } 
+        console.log(local)
     }
-    */
-   
+
     return (
         <nav className="navbar">
             <div className="navbar-logo-wrapper">
                 <img className="navbar-logo" src="/assets/kevin-logo.svg" alt="kevin-logo" />
             </div>
             <div className="navbar-button-wrapper">
-                <button >
-                    <Link to={{pathname: '/', state:{ pathname: location.pathname }}}>
+                <button className={checkLocation('/')}>
+                    <Link to={{pathname: '/', state:{ pathname: '/' }}}>
                         <img src="/assets/gallery-icon.svg" alt="" />
                     </Link>
-                        
-                  
                 </button>
-                <button> 
-                    <Link to={{pathname: '/liked', state:{ pathname: location.pathname }}}>
+                <button className={checkLocation('/liked')}> 
+                    <Link to={{pathname: '/liked', state:{ pathname: '/liked' }}}>
                         <img src="/assets/like-icon.svg" alt="" />
-                    </Link>
-                        
-                        
-                    
+                    </Link> 
                 </button>
             </div>
         </nav>

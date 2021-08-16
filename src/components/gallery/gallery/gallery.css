@@ -1,11 +1,15 @@
 .gallery {
   display: block;
   margin: 0 auto;
-  width: 100%;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 100%;
+          flex: 0 0 100%;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   padding: 48px;
   max-width: 1920px;
+  -webkit-transition: padding 0.3s ease-out;
+  transition: padding 0.3s ease-out;
 }
 
 .gallery-row {
@@ -14,8 +18,8 @@
   display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-flow: row wrap;
-          flex-flow: row wrap;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
 }
 
 .gallery-column {
@@ -26,17 +30,31 @@
   -webkit-box-direction: normal;
       -ms-flex-flow: column wrap;
           flex-flow: column wrap;
+  padding-bottom: 48px;
 }
 
 .gallery-item {
+  position: relative;
   overflow: hidden;
-  background-color: grey;
   border-radius: 10px;
-  width: calc(20% - 24px);
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 calc(20% - 19px);
+          flex: 0 0 calc(20% - 19px);
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
   margin-bottom: 24px;
   margin-right: 24px;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+div .gallery-row .gallery-item:last-child {
+  margin-right: 0;
 }
 
 div .gallery-row:nth-child(odd) .gallery-item:nth-child(odd) {
@@ -68,23 +86,67 @@ div .gallery-row:nth-child(odd) {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
+  margin-bottom: 24px;
 }
 
 div .gallery-row:nth-child(even) {
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;
-  margin-bottom: 24px;
 }
 
-.gallery-item:hover {
-  background-color: blue;
+.galler-item-like-button {
+  position: absolute;
+  top: 12px;
+  right: 12px;
 }
 
-.gallery-item img {
+.galler-item-like-button .like-button {
+  opacity: 0;
+  -webkit-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+
+.gallery-item:hover .like-button {
+  opacity: 1;
+}
+
+#lazy-load-bar {
+  height: 24px;
   width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  background-color: transparent;
+}
+
+@media (max-width: 1456px) {
+  .gallery {
+    padding: 32px;
+  }
+  .gallery-item {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 calc(25% - 18px);
+            flex: 0 0 calc(25% - 18px);
+  }
+}
+
+@media (max-width: 857px) {
+  .gallery {
+    padding: 24px;
+  }
+  .gallery-item {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 calc(33.3% - 16px);
+            flex: 0 0 calc(33.3% - 16px);
+  }
+}
+
+@media (max-width: 576px) {
+  .gallery {
+    padding: 24px;
+  }
+  .gallery-item {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 calc(50% - 12px);
+            flex: 0 0 calc(50% - 12px);
+  }
 }
 /*# sourceMappingURL=gallery.css.map */
