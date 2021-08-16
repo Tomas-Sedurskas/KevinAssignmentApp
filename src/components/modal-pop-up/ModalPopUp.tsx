@@ -31,7 +31,6 @@ interface Photo {
 
 export const ModalPopUp: React.FC = () => {
     const location: Location = useLocation();
-    console.log(location)
     const history = useHistory();
     const dispatch = useAppDispatch();
     const renderModal = useAppSelector((state) => state.navigationSlice.renderModal);
@@ -57,24 +56,6 @@ export const ModalPopUp: React.FC = () => {
     const [photo, setPhoto] = useState<Photo>(photoState);
     
     const {id}: {id: string} = useParams()
-    
-    
-    /*
-    useEffect(() => {
-        if(!renderModal){
-            return history.goBack()
-        }
-        console.log('RUNNING')
-        let filteredPhoto = photos.find((photo: Photo) => photo.id === id)
-        console.log(filteredPhoto)
-        if(filteredPhoto === undefined){
-            dispatch(getModalPhotoAsync(id));
-        } else {
-            setPhoto(filteredPhoto)
-        }
-        
-    }, [history, id, renderModal, photos]);
-    */
 
     useEffect(() => {
         dispatch(getModalPhotoAsync(id));
@@ -85,8 +66,7 @@ export const ModalPopUp: React.FC = () => {
         if(!renderModal){
             return history.goBack()
         }
-        
-        console.log('LOADING')
+
         if(modalPhoto.id !== ''){
             setPhoto(modalPhoto)
         }
@@ -99,8 +79,6 @@ export const ModalPopUp: React.FC = () => {
             return false
         }
     }
-
-    console.log(location)
 
     if(checkPhoto()){
         return (

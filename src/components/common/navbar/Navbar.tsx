@@ -9,7 +9,6 @@ const Navbar: React.FC = () => {
         if(path === local){
             return "navbar-button-active"
         } 
-        console.log(local)
     }
 
     return (

@@ -16,13 +16,11 @@ const Routing: React.FC= (props: any) => {
     const renderModal = useAppSelector((state) => state.navigationSlice.renderModal);
     
     const trueProps = () => {
-      console.log(params)
       let initParams = "/"
       if(params === '/liked'){initParams = '/liked'}
 
       var initialState = {hash: "", pathname: initParams, search: "", state: {pathname: params}}
       if(props.location.state === undefined){
-        console.log('INIT')
         props.location.state = initialState
       }
       return props.location.state

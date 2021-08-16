@@ -32,8 +32,7 @@ export const Main: React.FC = () => {
         lazyTimer();
         return() => clearTimeout(lazyTimer)
     }, [page, dispatch, lazyLoad])
-    console.log(photos)
-    console.log("MAIN")
+    
     return (
         <div>
             <Gallery photos={photos} />
